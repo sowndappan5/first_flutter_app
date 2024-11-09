@@ -1,0 +1,13 @@
+image: gitpod/workspace-full # This is a large workspace with many tools preinstalled.
+
+tasks:
+  - init: |
+      # Install Flutter SDK
+      git clone https://github.com/flutter/flutter.git -b stable $HOME/flutter
+      export PATH="$PATH:$HOME/flutter/bin"
+      flutter doctor
+
+  - command: |
+      # Install dependencies and run the Flutter app
+      flutter pub get
+      flutter run --no-sound-null-safety
